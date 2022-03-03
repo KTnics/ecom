@@ -5,11 +5,9 @@ from .serializers import *
 from .models import *
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import TokenAuthentication
+
 class productViev(APIView):
-    permission_classes =[IsAuthenticated,]
-    authentication_classes=[TokenAuthentication,]
+   
     def get(self,request):
        query = Product.objects.all()
        data= []
@@ -29,8 +27,7 @@ class productViev(APIView):
 
        
 class FavoritView(APIView):
-    permission_classes = [IsAuthenticated, ]
-    authentication_classes = [TokenAuthentication, ]
+   
 
     def post(self, request):
         data = request.data["id"]
@@ -65,8 +62,7 @@ class RegisterView(APIView):
 
 
 class CartView(APIView):
-    permission_classes = [IsAuthenticated, ]
-    authentication_classes = [TokenAuthentication, ]
+  
 
     def get(self, request):
         user = request.user
@@ -87,8 +83,7 @@ class CartView(APIView):
 
 
 class OrderView(APIView):
-    permission_classes = [IsAuthenticated, ]
-    authentication_classes = [TokenAuthentication, ]
+ 
 
     def get(self, request):
         try:
@@ -101,9 +96,7 @@ class OrderView(APIView):
 
 
 class AddToCart(APIView):
-    permission_classes = [IsAuthenticated, ]
-    authentication_classes = [TokenAuthentication, ]
-
+  
     def post(sefl, request):
         product_id = request.data['id']
         product_obj = Product.objects.get(id=product_id)
@@ -161,8 +154,7 @@ class AddToCart(APIView):
 
 
 class DelateCarProduct(APIView):
-    authentication_classes = [TokenAuthentication, ]
-    permission_classes = [IsAuthenticated, ]
+   
 
     def post(self, request):
         cart_product_id = request.data['id']
@@ -180,8 +172,7 @@ class DelateCarProduct(APIView):
 
 
 class DelateCart(APIView):
-    permission_classes = [IsAuthenticated, ]
-    authentication_classes = [TokenAuthentication, ]
+ 
 
     def post(self, request):
         cart_id = request.data['id']
@@ -195,9 +186,7 @@ class DelateCart(APIView):
 
 
 class OrderCreate(APIView):
-    permission_classes = [IsAuthenticated, ]
-    authentication_classes = [TokenAuthentication, ]
-
+  
     def post(self, request):
         try:
             data = request.data

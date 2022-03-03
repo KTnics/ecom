@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Cart',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.CharField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('total', models.PositiveIntegerField()),
                 ('isComplit', models.BooleanField(default=False)),
                 ('date', models.DateField(auto_now_add=True)),
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.CharField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100)),
                 ('date', models.DateField(auto_now_add=True)),
             ],
@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Product',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.CharField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100)),
                 ('data', models.DateField(auto_now_add=True)),
                 ('image', models.ImageField(upload_to='products/')),
@@ -49,7 +49,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Order',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.CharField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('email', models.CharField(max_length=150)),
                 ('phone', models.CharField(max_length=13)),
                 ('address', models.CharField(max_length=200)),
@@ -59,7 +59,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Favorire',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.CharField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('isFavorit', models.BooleanField(default=False)),
                 ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api.product')),
                 ('user', models.ForeignKey(on_delete=django.db.models.expressions.Case, to=settings.AUTH_USER_MODEL)),
@@ -68,7 +68,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CartProduct',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.CharField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('price', models.PositiveIntegerField()),
                 ('quantity', models.PositiveIntegerField()),
                 ('subtotal', models.PositiveIntegerField()),
